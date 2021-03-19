@@ -3,6 +3,14 @@ VHccAnalysis
 akjet_efficiency_2L.cxx contains code to calculate efficiency in 2L channel 
 akjet_efficiency_Wplus_minus_H125ToCC_WLNu_powheg_13_1L.cxx in 1L channel 
 
+Numerators and denominators to calculate integrals are commented as 
+
+- Denominator for resolved jet topology efficiency
+- Denominator for boosted jet topology efficiency
+- Numerator for resolved jet topology efficiency
+- Numerator for boosted jet topology efficiency
+
+
 Plots are done with piece of code beginning from 
 
     TCanvas *c64 = new TCanvas("c64", "", 1900, 1100);
