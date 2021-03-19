@@ -9,12 +9,43 @@ akjet_efficiency_ZH125ToCC_ZNuNu_0L.cxx in 0L channel
 
 
 
-**Numerators and denominators to calculate integrals are commented as 
+**Numerators and denominators to calculate integrals are commented as** 
 
 - Denominator for resolved jet topology efficiency
 - Denominator for boosted jet topology efficiency
 - Numerator for resolved jet topology efficiency
 - Numerator for boosted jet topology efficiency
+
+
+** Calculation of signal lost is done in 2L channel** 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////Numerator for Lost of signal search////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       **Numerator**            
+    ////// check fractions of selected AK4s and AK15 and AK8//////
+    
+
+	if((isZmm || isZee) && JetPt_1[0]>20 && JetPt_2[0]>20 &&
+		DeepJet_CvsL_1[0]>0.225 && DeepJet_CvsB_1[0]>0.4 && DeepJet_CvsL_2[0]>0.0 && DeepJet_CvsB_2[0]>0.0
+		&&controlSample==0 && H_mass[0]>50 && H_mass[0]<200 && V_mass[0]>75 && V_mass[0]<105 && V_pt[0]>=60 && HVdPhi[0]>2.5)                                  {
+
+
+     if (Hcc.Pt()>200&&LeadAK15.Pt()>300){
+     frac_ak4_ak15->Fill(LeadAK15.Pt());
+     frac_ak4_ak15_ak4->Fill(LeadAK15.Pt()); 
+             }
+     } //end of cut 
+       ** Denominator**
+       if((isZmm || isZee) && JetPt_1[0]>20 && JetPt_2[0]>20 &&
+		DeepJet_CvsL_1[0]>0.225 && DeepJet_CvsB_1[0]>0.4 && DeepJet_CvsL_2[0]>0.0 && DeepJet_CvsB_2[0]>0.0
+		&&controlSample==0 && H_mass[0]>50 && H_mass[0]<200 && V_mass[0]>75 && V_mass[0]<105 && V_pt[0]>=60 && HVdPhi[0]>2.5)                                  {
+
+		
+                        h_pt->Fill(Hcc.Pt());
+                        }
+
+
+
 
 
 Plots are done with piece of code beginning from 
