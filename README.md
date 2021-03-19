@@ -9,7 +9,7 @@ akjet_efficiency_ZH125ToCC_ZNuNu_0L.cxx in 0L channel
 
 
 
-##Numerators and denominators to calculate integrals are commented as 
+**Numerators and denominators to calculate integrals are commented as 
 
 - Denominator for resolved jet topology efficiency
 - Denominator for boosted jet topology efficiency
