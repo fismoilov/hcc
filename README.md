@@ -1,7 +1,7 @@
 # hcc
 VHccAnalysis
 akjet_efficiency_2L.cxx contains code to calculate efficiency in 2L channel 
-akjet_efficiency_Wplus_minus_H125ToCC_WLNu_powheg_13_1L.cxx for 1L channel 
+akjet_efficiency_Wplus_minus_H125ToCC_WLNu_powheg_13_1L.cxx in 1L channel 
 
 Plots are done with piece of code beginning from 
 
