@@ -17,8 +17,12 @@ akjet_efficiency_ZH125ToCC_ZNuNu_0L.cxx in 0L channel
 - Numerator for boosted jet topology efficiency
 
 
-** Calculation of signal lost is done in 2L channel** 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+**Calculation of signal lost is done in 2L channel** 
+    
+   
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////Numerator for Lost of signal search////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
        **Numerator**            
@@ -44,11 +48,50 @@ akjet_efficiency_ZH125ToCC_ZNuNu_0L.cxx in 0L channel
                         h_pt->Fill(Hcc.Pt());
                         }
 
+**Plots and integral calculation**
+
+ 	TCanvas *c4 = new TCanvas("c4", "", 1900, 1100);
+
+	  c4->SetFillStyle(1001);
+  	c4->SetFillColor(kWhite);
+  	frac_ak4_ak15->GetXaxis()->SetTitle("p_{T} [GeV]");
+  	frac_ak4_ak15->GetYaxis()->SetTitle("fraction");
+  	frac_ak4_ak15->SetLineColor(kRed);
+  	frac_ak4_ak15->SetLineStyle(1);
+  	frac_ak4_ak15->SetMarkerStyle(26);
+  	frac_ak4_ak15->SetFillStyle(kRed);
+  	frac_ak4_ak15->SetMarkerSize(1.5);
+  	gStyle->SetOptStat(0);
+
+	int num_int_frac_ak4_ak15=frac_ak4_ak15->Integral();
+	cout<<"num_int_frac_ak4_ak15  ="<<num_int_frac_ak4_ak15<<endl;
+
+	int num_int_3_h_pt=h_pt->Integral();
+	cout<<"num_int_3_h_pt  ="<<num_int_3_h_pt<<endl;
+
+	double  frac_ak4_ak15_h_pt;
+	
+	frac_ak4_ak15_h_pt=num_int_frac_ak4_ak15/num_int_3_h_pt;
+	cout<<"Lost of signal in frac_ak4_ak15_h_pt = "<<frac_ak4_ak15_h_pt<<endl;
+
+	frac_ak4_ak15->Sumw2();
+	h_pt->Sumw2();
+	frac_ak4_ak15->Divide(h_pt);
+	frac_ak4_ak15->GetYaxis()->SetRangeUser(0., 1.);
+  	frac_ak4_ak15->Draw("E1");
+
+  	TLegend* leg4 = new TLegend(0.1,0.91,0.3,0.85);
+   	leg4->AddEntry(frac_ak4_ak15,"AK4 & AK15");
+        leg4->SetTextSize(0.03);
+        leg4->SetTextFont(42);
+        leg4->SetBorderSize(0);
+        leg4->Draw("same");
+  	c4->SaveAs("tgraphefficiency_ak4_ak15.pdf");
+  	delete c4;
 
 
-
-
-Plots are done with piece of code beginning from 
+**For Efficiency**
+**Plots are done with piece of code beginning from** 
 
     TCanvas *c64 = new TCanvas("c64", "", 1900, 1100);
 
